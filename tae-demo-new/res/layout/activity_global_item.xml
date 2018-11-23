@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+            android:id="@+id/show_item_detail_global"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openItemDetailGlobal"
+            android:text="@string/show_item_detail_global" />
+
+
+    <Button
+            android:id="@+id/open_taoke_detail_global"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openTaokeDetailGlobal"
+            android:text="@string/open_taoke_detail_global" />
+
+    <EditText
+        android:id="@+id/itemInputDataGlobal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="混淆的itemID,itemType,pid 不填为默认值" />
+
+    <Button
+        android:id="@+id/show_item_detail_global_itemId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showItemDetailGlobal"
+        android:text="@string/show_item_detail_global_itemId" />
+
+
+    <Button
+        android:id="@+id/open_taoke_detail_global_itemId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showTaokeItemDetailGlobal"
+        android:text="@string/open_taoke_detail_global_itemId" />
+
+    <EditText
+        android:id="@+id/itemInputDataGlobalV2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="请输入未混淆itemID 不填为默认值" >
+
+
+
+        <requestFocus />
+    </EditText>
+
+</LinearLayout>

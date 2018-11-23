@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+   <Button
+        android:id="@+id/show_login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showLogin"
+        android:text="@string/show_login" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="logout"
+        android:text="@string/logout" />
+    
+     <Button
+        android:id="@+id/showQrLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showQrLogin"
+        android:text="扫码登录" />
+    
+</LinearLayout>

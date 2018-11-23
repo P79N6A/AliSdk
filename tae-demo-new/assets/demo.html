@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>安全校验</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" href="http://g.assets.daily.taobao.net/cm/havana-bridge/0.0.2/index.css"/>
+    <title>登录并授权</title>
+</head>
+<body>
+
+<div id="logo"></div>
+<div id="content">
+    <form action="" class="login-form" id="J_Form">
+        <input type="hidden" name="version" id="version" value="1.0.0.daily"/>
+        <input type="hidden" name="target" id="target" value="thirdpartlogin"/>
+        <input type="hidden" name="target" id="J_CheckCodeId" value=""/>
+        <div class="field username input-autoclear">
+            <input type="text" name="TPL_username" class="input-required" id="J_Username" placeholder="淘宝会员名/手机/邮箱" value="hongbing_001" autocomplete="off">
+            <i class="icon-clear"></i>
+        </div>
+        <div class="field pwd input-autoclear">
+            <input type="password" name="TPL_password" class="input-required" id="J_Password" placeholder="密码" value="taobao1234" class="c-form-txt-normal">
+            <i class="icon-clear"></i>
+        </div>
+        <div class="checkcode hide">
+            <label>验证码</label>
+            <input type="text" name="checkcode" id="J_Checkcode" placeholder="右侧验证码" maxlength="4">
+            <span>|</span>
+            <img class="checkcode-img J-changeCheckcode" src="" id="J_StandardCode">
+            <i class="icon-refresh J-changeCheckcode"></i>
+        </div>
+        <div class="field submit-btn">
+            <button type="submit" class="button-submit" id="J_Submit">登录并授权</button>
+        </div>
+    </form>
+
+    <div class="login-info">
+        <p><strong>允许爱用交易获得以下操作权限:</strong></p>
+        <ul id="J_Info">
+            <li class="default">读取您的用户名等基本信息（必选）</li>
+            <li class="active">读取您的用户名等基本信息读取您的用户名等基本信息读取您的用户名等基本信息</li>
+            <li>读取您的用户名等基本信息</li>
+            <li class="hide">读取您的用户名等基本信息</li>
+            <li class="hide">读取您的用户名等基本信息</li>
+            <li class="hide">读取您的用户名等基本信息</li>
+        </ul>
+        <p class="show-all" id="J_ShowAll"><span>查看全部</span></p>
+
+    </div>
+</div>
+<script src="http://g.assets.daily.taobao.net/cm/havana-bridge/0.0.2/zepto.js"></script>
+<script src="http://g.assets.daily.taobao.net/cm/havana-bridge/0.0.2/havanabridge.js"></script>
+<script>
+
+    var $ = Zepto,
+        HVN = window.HavanaBridge;
+
+    /**
+     * toast报错提示组件
+     */
+    $.toast = function (message, callback) {
+        var dom = $('<div class="am-toast"><div class="am-toast-text">' + message + '</div></div>').appendTo(document.body);
+
+        setTimeout(function () {
+            dom.animate({
+                opacity: 0
+            }, 200, 'ease-out', function () {
+                dom.remove();
+                callback && callback();
+            })
+        }, 3000);
+    };
+
+    /**
+     * 载入中tip提示
+     */
+    $.loadingTip = (function () {
+        var dom = $('<div class="am-toast"><div class="am-toast-text"><span class="am-icon-loading"></span> 加载中</div></div>');
+
+        return {
+            show : function () {
+                dom.appendTo(document.body);
+            },
+            hide : function (){
+                dom.remove();
+            }
+        }
+    })();
+
+    window.AuthLogin = {
+        init : function(){
+            this._isSubmit = false;
+            this._bind();
+        },
+        _bind: function(){
+            var self = this;
+            $("#J_Submit").on("click",function(e){
+                self._formSubmit(e)
+            });
+            $('#J_ShowAll').on('click',function(e){
+                var elem = $('#J_Info .hide');
+                elem.removeClass('hide');
+                $(this).hide();
+            });
+
+            $(".J-changeCheckcode").click(function (e) {
+                e.preventDefault();
+                self.refreshCheckCode();
+            });
+        },
+        refreshCheckCode:function(){
+            var src = $(".checkcode-img").attr("src");
+            src = src.substring(0, src.indexOf("r=") + 2);
+            $(".checkcode-img").attr("src", src + Math.random());
+        },
+        _validate: function(){
+            if ($.trim($("#J_Username").val()) == "") {
+                $.toast('请输入账户名');
+                return false;
+            }
+            if ($.trim($("#J_Password").val()) == "") {
+                $.toast('请输入密码');
+                return false;
+            }
+            if (!$("#J_Checkcode").parent().hasClass('hide') && $.trim($("#J_Checkcode").val())== "") {
+                $.toast('请输入验证码');
+                return false;
+            }
+        },
+        _formSubmit:function(e){
+            e.preventDefault();
+            if(this._isSubmit ){
+                return;
+            }
+            $.loadingTip.show();
+            this._isSubmit = true;
+            this._validate();
+
+            var self = this,
+                usrname = $("#J_Username").val(),
+                version = $("#version").val(),
+                target = $("#target").val(),
+                pwd = $("#J_Password").val(),
+                checkCodeId =$("#J_CheckCodeId").val(),
+                checkcode = $("#J_Checkcode").val(),
+                params;
+
+            if(checkcode !== ''){
+                params = {
+                    loginInfo:{
+                        loginId:usrname,
+                        password:pwd
+                    }
+                };
+            }else{
+                params = {
+                    loginInfo:{
+                        loginId:usrname,
+                        password:pwd,
+                        checkCodeId:checkCodeId,
+                        checkCode:checkcode
+                    }
+                };
+            }
+
+            var data ={
+                version:version,
+                target:target,
+                params: params
+            };
+            data = JSON.stringify(data);
+
+            /**
+             * code 1007 显示验证码
+             * code 1013 帐号需要二次验证
+             * 登录成功native直接关闭当前页面
+             * 登录失败toast报错
+             */
+            HVN.call('loginBridge', 'loginByUsername', data, function(e){
+                $.loadingTip.hide();
+                self._isSubmit = false;
+                
+                alert(e.code);
+                if(e.code === 1007){
+                    self.showCheckcode(e.data.checkCodeUrl);
+          			alert(e.data.checkCodeId);
+                    $('#J_CheckCodeId').val(e.data.checkCodeId);
+                }else if(e.code === 1013){
+                    window.location.href = e.data.doubleCheckUrl;
+                    return;
+                }else if(e.code === 1008){
+                
+                alert(e.message);
+                    self.refreshCheckCode();
+                    $.toast(e.message);
+                }
+                else{
+                    $.toast(e.message);
+                }
+
+            }, function(e){
+                $.loadingTip.hide();
+                self._isSubmit = false;
+                $.toast('系统繁忙，请稍后再试');
+            });
+        },
+        showCheckcode:function(src){
+            $('#J_StandardCode').attr('src',src + "&r=" + Math.random() );
+            $("#J_Checkcode").parent().removeClass('hide');
+        }
+    };
+
+    $(function(){
+        window.AuthLogin.init();
+    });
+
+
+    //input框输入之后才点亮下一步按钮
+    (function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            var requiredField = document.querySelectorAll('.input-required'),
+                    submitBtn = document.querySelectorAll('.button-submit')[0];
+
+            onInput();
+
+            function canEnable() {
+                var b = true;
+                Array.prototype.forEach.call(requiredField, function (elem) {
+                    b = b && !!elem.value;
+                });
+                return b;
+            }
+
+            function onInput() {
+                if (submitBtn) {
+                    if (canEnable()) {
+                        submitBtn.removeAttribute('disabled');
+                    } else {
+                        submitBtn.setAttribute('disabled', 'disabled');
+                    }
+                }
+            }
+
+            Array.prototype.forEach.call(requiredField, function (elem) {
+
+                elem.addEventListener('input', onInput);
+                elem.addEventListener('focus', onInput);
+                elem.addEventListener('blur', onInput);
+            });
+        });
+    })();
+
+    /**
+     * 输入清除功能
+     */
+    (function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            var autoClearFiled = document.querySelectorAll('.input-autoclear');
+            if(autoClearFiled){
+                Array.prototype.forEach.call(autoClearFiled, function (elem) {
+                    var clearTrigger = elem.querySelector('.icon-clear');
+                    var clearInput = elem.querySelector('input[type="text"],input[type="password"],input[type="number"],input[type="tel"],input[type="email"],input[type="url"],input[type="search"]');
+                    if (clearTrigger && clearInput) {
+                        if (clearInput.value.length > 0) {
+                            clearTrigger.style.visibility = 'visible';
+                        }
+                        clearTrigger.addEventListener('click', function () {
+                            clearInput.value = '';
+                            clearInput.focus();
+                            clearTrigger.style.visibility = 'hidden';
+                        }, false);
+                        clearInput.addEventListener('input', function () {
+                            clearTrigger.style.visibility = (clearInput.value.length > 0) ? 'visible' : 'hidden';
+                        }, false);
+                    }
+                });
+            }
+        }, false);
+    })();
+
+
+
+</script>
+
+</body>
+</html>

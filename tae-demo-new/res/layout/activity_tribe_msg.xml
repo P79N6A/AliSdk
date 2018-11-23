@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tribe_msg_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/aliwx_common_bg_color"
+        android:ellipsize="middle"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text=""
+        android:textSize="18sp" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/tribe_msg_title"
+        android:background="#000000" />
+
+    <TextView
+        android:id="@+id/tribe_info"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/line"
+        android:background="@color/aliwx_common_bg_color"
+        android:drawableRight="@drawable/aliwx_arrow"
+        android:ellipsize="middle"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="查看群详情"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/tribe_msg_reply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/aliwx_common_bg_color"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/tribe_msg_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="发送文本" />
+
+        <Button
+            android:id="@+id/tribe_msg_image"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="发送图片" />
+
+        <Button
+            android:id="@+id/tribe_msg_audio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="发送语音" />
+
+        <Button
+            android:id="@+id/tribe_msg_geo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="地理位置" />
+
+        <Button
+            android:id="@+id/tribe_msg_custom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="自定义消息" />
+    </LinearLayout>
+
+    <com.taobao.tae.sdk.openimui.refreshlist.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tribe_msg_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tribe_msg_reply"
+        android:layout_below="@+id/tribe_info"
+        ptrMode="pullDownFromTop"
+        android:cacheColorHint="#00000000"
+        android:divider="#19000000"
+        android:dividerHeight="4dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true" />
+
+</RelativeLayout>

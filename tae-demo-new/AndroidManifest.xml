@@ -1,0 +1,98 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.taobao.tae.sdk.demo">
+
+
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application
+        android:name="com.taobao.tae.sdk.demo.DemoApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.NoActionBar"
+        tools:ignore="NewApi" >
+        <!-- 分享编辑页 -->
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name="com.taobao.tae.sdk.demo.MainActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.socialshare.MyShareActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.MemberActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.ItemActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.GlobalItemActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.OrderActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.CartActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.WebViewActivity" />
+        <activity
+            android:name="com.taobao.tae.sdk.demo.QrLoginActivity"
+            android:theme="@style/tae_sdk_login_qr_activity_style" />
+        <!-- android:theme="@style/com_taobao_tae_sdk_qr_login_activity_theme" -->
+        <activity android:name="com.taobao.tae.sdk.demo.MaActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.amap.AMapActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.amap.AMap2DMapActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.amap.AMap3DMapActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.amap.RouteActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.amap.RouteSearchActivity" />
+        <activity
+            android:name="com.taobao.tae.sdk.openimui.OpenImUiActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:label="@string/app_name"
+            android:taskAffinity="" >
+        </activity>
+        <activity android:name=".UploadActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.amap.LocationGPSActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.amap.PoiAroundSearchActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.amap.PoiKeywordSearchActivity" />
+        <activity android:name="com.taobao.tae.sdk.openimui.TribeOperationActivity" />
+        <activity android:name="com.taobao.tae.sdk.openimui.TribeDetailActivity" />
+        <activity android:name="com.taobao.tae.sdk.openimui.TribeListActivity" />
+        <activity android:name="com.taobao.tae.sdk.openimui.TribeMemberAdapter" />
+        <activity android:name="com.taobao.tae.sdk.openimui.TribeMsgActivity" />
+        <activity android:name="com.taobao.tae.sdk.openimui.TribeMsgAdapter" />
+        <activity android:name="com.taobao.tae.sdk.demo.ui.activity.OpenTradeActivity" />
+        <activity android:name="com.taobao.tae.sdk.demo.ui.activity.OpenAccountActivity" />
+        <activity
+            android:name="com.taobao.tae.sdk.demo.CameraActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+
+                <category android:name="android.intent.category.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.taobao.tae.sdk.demo.ScanWebViewActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+
+                <category android:name="android.intent.category.VIEW" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

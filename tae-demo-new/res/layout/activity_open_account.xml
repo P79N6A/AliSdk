@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/opOpenAccount" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="#ff212323"
+            android:orientation="vertical"
+            android:padding="4dp" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="TokenLogin: openId, isvSecret, token" />
+
+            <EditText
+                android:id="@+id/text_openAccountOpenId"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="OpenId"
+                android:text="4398046514325" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/text_openAccountIsvSecret"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="ISV Secret"
+                android:text="6bc7db53673216213ae374fc1d5b30a4" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/text_openAccountISVToken"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="ISV Token"
+                android:text="" >
+
+                <!-- android:text="FxJbzXjm3vtO2GqNIdfnej9Db44KwekY5KCs6EXIb2DZpizMBYlgm1KswjkTERYOSbF3uIMhM8mFgddwpTA+ktB2iHd2moZjH4k1nVXglIn8FUDYcHpKm9VdK4EEsjn+m4Bp8RntoNV4+tcz7qQSIg=="> -->
+            </EditText>
+
+            <Button
+                android:id="@+id/openAccount_tokenLogin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="tokenLogin"
+                android:text="@string/tokenLogin" />
+
+            <Button
+                android:id="@+id/openAccount_login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="login"
+                android:text="@string/opLogin" />
+
+            <Button
+                android:id="@+id/openAccount_logout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="logout"
+                android:text="@string/logout" />
+
+            <Button
+                android:id="@+id/openAccount_register"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="register"
+                android:text="注册" />
+
+            <Button
+                android:id="@+id/openAccount_resetPassword"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="resetPassword"
+                android:text="重置密码" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <Button
+                android:id="@+id/autoLoginGetToken"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="autoLoginGetToken"
+                android:text="判断->登录->获取Token" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

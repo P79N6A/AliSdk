@@ -1,0 +1,52 @@
+<html>
+<head>
+<script type="text/javascript">
+	function sign()
+  	{
+  		var name=prompt("hybrid://signBridge:123/signGet?http://www.taobao.com?x=1111","hv_hybrid:");
+  		if (name!=null && name!="")
+    		{
+    			document.write("Hello " + name + "!")
+    		}
+  	}
+  	function login()
+  	{
+  		var name=prompt("hybrid://loginBridge:123/loginByUsername?{\"version\":\"1.0.0.daily\",\"target\":\"thirdpartlogin\",\"params\":{\"loginInfo\":{\"loginId\":\"18698701001\",\"password\":\"hello1234\"}}}","hv_hybrid:");
+  	}
+  	function openUrl()
+  	{
+  		window.location = 'http://10.68.101.30:8000/demo.html';
+  	}
+  	function testSession()
+  	{
+  		window.location = 'http://test.taobao.com/logincheck.htm?123=2232323&aaaa=bbbb#12344'
+  	}
+  window.HavanaBridge = {
+	onFailure:function(token,ret){
+	alert(ret);
+		<!--window.location = 'http://10.68.102.82:8000/intercdpt-demo.html';-->
+	},	
+	onSuccess:function(token,ret){
+	alert(ret);
+		<!--#window.location = 'http://10.68.103.190:8000/intercdpt-demo.html'-->;
+	}
+}
+
+</script>
+</head>
+
+<body>
+
+<input type="button" onclick="sign()"
+value="Sign" />
+<input type="button" onclick="login()"
+value="Login" />
+
+<input type="button" onclick="openUrl()"
+value="openUrl" />
+
+<input type="button" onclick="testSession()"
+value="testSession" />
+
+</body>
+</html>

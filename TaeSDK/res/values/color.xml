@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+     <color name="msf_result_view">#b0000000</color>
+      <color name="msf_viewfinder_mask">#60000000</color>
+      <color name="msf_possible_result_points">#c0ffff00</color> 
+</resources>

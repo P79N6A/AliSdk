@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'idea'
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+android {
+    compileSdkVersion = 26
+    buildToolsVersion = "28.0.3"
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.taobao.tae.sdk.demo"
+        minSdkVersion  19
+        targetSdkVersion  26
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "boolean", "AUTO_UPDATES", "true"
+    }
+
+
+    lintOptions {
+        abortOnError false
+    }
+
+    dexOptions {
+        jumboMode = true
+        preDexLibraries = false
+        javaMaxHeapSize "2g"
+    }
+
+    compileOptions {
+        encoding = "UTF-8"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            minifyEnabled false
+            zipAlignEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            aidl.srcDirs = ['src']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':TaeSDK')
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/aliwx_message_item_height"
+    android:background="@color/aliwx_common_bg_white_color" >
+
+    <TextView
+        android:id="@+id/name"
+        style="@style/aliwx_column_msg_title_style"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/aliwx_common_safe_margin"
+        android:ellipsize="middle"
+        android:includeFontPadding="false" />
+    <ImageView
+        android:id="@+id/sweep_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/aliwx_common_safe_margin"
+        android:duplicateParentState="true"
+        android:src="@drawable/aliwx_arrow" />
+</RelativeLayout>

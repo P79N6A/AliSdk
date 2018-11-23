@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/opOpenTrade"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:background="#ff212323"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Order: isvOrderId, itemId, itemTitle, amount, data"/>
+        <!-- String isvOrderId, Long itemId, String itemTitle
+        , Long amount, Map<String, Object> data -->
+        <EditText
+            android:id="@+id/text_isvOrderId"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="isvOrderId"
+            android:text="">
+        </EditText>
+        <EditText
+            android:id="@+id/text_itemId"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:numeric="integer"
+            android:hint="itemId"
+            android:text="">
+        </EditText>
+        <EditText
+            android:id="@+id/text_itemTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="itemTitle"
+            android:text="title">
+        </EditText>
+        <EditText
+            android:id="@+id/text_amount"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:numeric="integer"
+            android:hint="amount"
+            android:text="100">
+        </EditText>
+        <EditText
+            android:id="@+id/text_data"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="data"
+            android:text="{data:'data'}">
+        </EditText>
+        <Button
+            android:id="@+id/openTrade_createOrder"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="createOrder"
+            android:text="@string/createOrder" />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/text_orderId"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="orderId"
+        android:text="">
+    </EditText>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:background="#ff212323"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Pay: outPayId, amount, timeout"/>
+        <!-- Long orderId, String isvOrderId, String outPayId
+            , long amount, String timeout -->
+        <EditText
+            android:id="@+id/text_outPayId"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="outPayId"
+            android:text="">
+        </EditText>
+        <EditText
+            android:id="@+id/text_pay_amount"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:numeric="integer"
+            android:hint="amount"
+            android:text="1">
+        </EditText>
+        <EditText
+            android:id="@+id/text_pay_timeout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="timeout"
+            android:text="30m">
+        </EditText>
+        <Button
+            android:id="@+id/openTrade_showPayOrder"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="showPayOrder"
+            android:text="@string/showPayOrder" />
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

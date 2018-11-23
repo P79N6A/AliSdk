@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/main"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/userid"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="用户名" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="密码" />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="login"
+                android:text="登陆" />
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="logout"
+                android:text="@string/logout" />
+
+            <Button
+                android:id="@+id/loginState"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="showLoginState"
+                android:text="显示登录状态" />
+
+            <EditText
+                android:id="@+id/edittext"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="聊天对象id" />
+
+            <Button
+                android:id="@+id/openWwChat"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openWwChat"
+                android:text="打开旺旺聊天" />
+
+            <Button
+                android:id="@+id/openWwConversation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openWwConversation"
+                android:text="打开旺旺会话" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="未读条数" />
+
+            <TextView
+                android:id="@+id/unread"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0" >
+            </TextView>
+
+            <!--
+            <Button
+                android:id="@+id/taeLogin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="taeLogin"
+                android:text="tae登陆" />
+
+            <Button
+                android:id="@+id/gif"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendGif"
+                android:text="发送淘公仔" />
+
+            <Button
+                android:id="@+id/geo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendGeo"
+                android:text="发送地理位置" />
+            -->
+
+            <Button
+                android:id="@+id/icon"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="chooseIconDialog"
+                android:text="切换icon" />
+
+            <Button
+                android:id="@+id/appkey"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="chooseAppkeyDialog"
+                android:text="切换appKey" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+	<Button
+        android:id="@+id/showCart"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showCart"
+        android:text="@string/showCart" />
+	
+	<Button
+        android:id="@+id/addItem2Cart"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addItem2Cart"
+        android:text="@string/addItem2Cart" />
+	
+	<Button
+        android:id="@+id/addTaoKeItem2Cart"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="addTaoKeItem2Cart"
+        android:text="@string/addTaoKeItem2Cart" />
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+	    <EditText
+	        android:id="@+id/cartInputData"
+	        android:layout_width="match_parent"
+	        android:layout_height="94dp"
+	        android:ems="10"
+	        android:inputType="text"
+	        android:hint="openItemId,pid,unionId,subPid" >
+
+	        <requestFocus />
+	    </EditText>
+	</LinearLayout>
+    
+</LinearLayout>

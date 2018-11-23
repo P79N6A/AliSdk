@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_vertical" >
+
+        <LinearLayout
+            android:id="@+id/main"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!--
+                 <Button
+                android:id="@+id/initInfos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="initInfos"
+                android:text="初始化Info" />
+            -->
+
+
+            <!--
+            <EditText
+                android:id="@+id/appKey"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="appKey" />
+            
+            <Button
+                android:id="@+id/initAppkeys"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="initAppKeys"
+                android:text="初始化appKeys" />
+            -->
+
+            <EditText
+                android:id="@+id/userid"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="发送方Id" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="用户密码" />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="login"
+                android:text="登陆" />
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="logout"
+                android:text="@string/logout" />
+
+            <Button
+                android:id="@+id/loginState"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="showLoginState"
+                android:text="显示登录状态" />
+
+            <EditText
+                android:id="@+id/target"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="接收方Id" />
+
+            <Button
+                android:id="@+id/openWwChat"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openWwChat"
+                android:text="打开旺旺聊天" />
+
+            <Button
+                android:id="@+id/openWwConversation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openWwConversation"
+                android:text="打开旺旺会话" />
+
+            <Button
+                android:id="@+id/openWwConversationFragment"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openWwConversationFragment"
+                android:text="打开旺旺会话Fragment" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="未读条数" />
+
+            <TextView
+                android:id="@+id/unread"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0" >
+            </TextView>
+
+            <Button
+                android:id="@+id/openTribeTest"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openTribeTest"
+                android:text="群功能测试" />
+
+            <!--
+            <Button
+                android:id="@+id/taeLogin"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="taeLogin"
+                android:text="tae登陆" />
+
+            <Button
+                android:id="@+id/gif"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendGif"
+                android:text="发送淘公仔" />
+
+            <Button
+                android:id="@+id/geo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:onClick="sendGeo"
+                android:text="发送地理位置" />
+            -->
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

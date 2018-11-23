@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ma   501-550 -->
+    <string name="alisdk_message_501_name">INVALID_BAR_CODE</string>
+    <string name="alisdk_message_501_message">当前扫描码无效，未能获取对应地址信息</string>
+    <string name="alisdk_message_501_action"></string>
+    <string name="alisdk_message_501_type">E</string>
+
+</resources>

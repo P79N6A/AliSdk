@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <EditText 
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="群名称（不修改则置空）"
+        />
+    <EditText 
+        android:id="@+id/announcement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="群公告（不修改则置空）"
+        />
+</LinearLayout>

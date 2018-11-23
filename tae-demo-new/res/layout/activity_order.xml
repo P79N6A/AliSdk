@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    
+    <Button
+        android:id="@+id/show_order"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showOrder"
+        android:text="@string/show_order" />
+    
+    <Button
+        android:id="@+id/showTaokeOrder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showTaokeOrder"
+        android:text="@string/showTaokeOrder" />
+    
+    <Button
+        android:id="@+id/showOrderWithSKU"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showOrderWithSKU"
+        android:text="@string/showOrderWithSKU" />
+	
+	<Button
+        android:id="@+id/showKaoKeOrderWithSKU"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showKaoKeOrderWithSKU"
+        android:text="@string/showKaoKeOrderWithSKU" />
+	<RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/type"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/one"            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:checked="true"
+            android:layout_weight="1"
+            android:text="一单" >
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dip"
+            android:layout_weight="1"
+            android:text="多单" >
+        </RadioButton>
+
+    </RadioGroup>
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+	    <EditText
+	        android:id="@+id/orderInputData"
+	        android:layout_width="match_parent"
+	        android:layout_height="94dp"
+	        android:ems="10"
+	        android:inputType="text"
+	        android:hint="openItemId,pid,unionId,subPid 
+	        注意showorder 是itemid+skuid" >
+
+	        <requestFocus />
+	    </EditText>
+	</LinearLayout>
+
+</LinearLayout>

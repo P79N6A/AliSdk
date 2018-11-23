@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/aliwx_common_bg_color"
+        android:ellipsize="middle"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="群信息"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:id="@+id/group_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_margin="10dp" >
+
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="群名称："
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/group_name_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/group_name"
+            android:text=""
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/group_announcement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/group_name"
+            android:layout_marginTop="10dp"
+            android:text="群公告："
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/group_announcement_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/group_name_info"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/group_announcement"
+            android:text=""
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/group_members"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/group_announcement"
+            android:layout_marginTop="10dp"
+            android:text="群成员："
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/group_member_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/modify_tribe_info"
+        android:layout_below="@+id/group_info"
+        android:layout_margin="10dp" >
+    </ListView>
+
+    <Button
+        android:id="@+id/modify_tribe_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/invite_members"
+        android:text="修改群信息" />
+
+    <Button
+        android:id="@+id/invite_members"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/exit_group"
+        android:text="邀请新成员" />
+
+    <Button
+        android:id="@+id/exit_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="退出群" />
+
+</RelativeLayout>

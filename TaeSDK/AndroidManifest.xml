@@ -1,0 +1,152 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.alibaba.sdk.android.kernel">
+
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+
+    <application android:allowBackup="true">        
+    
+        <activity android:name="com.alibaba.sdk.android.trade.ui.TradeWebViewActivity">
+            <intent-filter>
+                <action android:name="COM_TAOBAO_TAE_SDK_TRADE_WEB_VIEW_ACTION"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>        
+        <activity android:configChanges="orientation|keyboardHidden|navigation" android:exported="false" android:name="com.alipay.sdk.app.H5PayActivity" android:screenOrientation="behind">
+        </activity>
+        <activity android:configChanges="orientation|keyboardHidden|navigation" android:exported="false" android:name="com.alipay.sdk.auth.AuthActivity" android:screenOrientation="behind">
+        </activity>
+        <meta-data android:name="UMENG_APPKEY" android:value="551e5d0dfd98c5f11a000021">
+        </meta-data>
+        <!--android:icon="@drawable/aliwx_head_default"-->
+        <!--android:label="@string/aliwx_app_name" >-->
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.alibaba.mobileim.ui.WxChattingActvity" android:screenOrientation="portrait" android:theme="@style/Aliwx_ChattingDetailStyle_orange" android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.alibaba.mobileim.ui.WxConversationActivity" android:screenOrientation="portrait" android:theme="@style/Aliwx_ConverationStyle_default"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.alibaba.mobileim.kit.CloudPwdSettingHintActivity" android:screenOrientation="portrait" android:theme="@style/Aliwx_ConverationStyle_default"/>
+
+        
+         <activity android:launchMode="singleTop" android:name="com.alibaba.mobileim.ui.chat.MultiImageActivity" android:screenOrientation="sensor" android:theme="@style/Aliwx_ContentOverlay_default" android:windowSoftInputMode="adjustPan"/>
+         
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.alibaba.mobileim.ui.multi.lightservice.MultiPickGalleryActivity" android:theme="@style/Aliwx_ConverationStyle_default"/>
+
+        <activity android:exported="true" android:name="com.alibaba.tcms.service.MonitorActivity" android:process=":TcmsService" android:theme="@android:style/Theme.Translucent">
+        </activity>
+         
+		<service android:exported="false" android:name="com.alibaba.mobileim.appmonitor.tiptool.TooltipService">
+ 		</service>
+        <service android:name="com.alibaba.mobileim.channel.service.InetIOService">
+        </service>
+        <service android:exported="true" android:name="com.alibaba.tcms.service.TCMSService" android:process=":TcmsService">
+        </service>
+
+        <receiver android:name="com.alibaba.tcms.TCMSBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.alibaba.tcms.TCMSRECEIVER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.alibaba.sdk.android.login.ui.LoginWebViewActivity"/>
+        <activity android:name="com.alibaba.sdk.android.login.ui.QrLoginConfirmActivity"/>
+        <activity android:name="com.alibaba.sdk.android.login.ui.QrLoginActivity" android:theme="@style/tae_sdk_login_qr_activity_style"/>
+     
+      <activity android:name="com.alibaba.sdk.android.msf.activity.VerifyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden">
+       </activity>
+       
+      <!--  
+      <provider
+      android:name="com.alibaba.sdk.android.msf.common.db.MMasterProvider"
+      android:authorities="com.taobao.tae.sdk.demo.com.alibaba.sdk.android.msf.provider"
+      android:multiprocess="false" />
+      -->
+      
+       <activity android:configChanges="orientation|keyboardHidden" android:name="com.alibaba.sdk.android.msf.activity.CameraActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+       
+       <activity android:name="com.alibaba.sdk.android.msf.activity.MWebActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.alibaba.sdk.android.msf.activity.MImgActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        
+        <activity android:name="com.alibaba.sdk.android.msf.activity.VerifyextActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="orientation|keyboardHidden" android:name="com.alibaba.sdk.android.msf.scanner.zxing.activity.MipcaActivityCapture" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        
+        <service android:label="MMasterService" android:name="com.alibaba.sdk.android.msf.service.LocationService" android:persistent="true"/>
+        <activity android:configChanges="orientation|screenSize|keyboardHidden" android:name="com.alibaba.sdk.android.openaccount.ui.ui.NoPasswordLoginActivity" android:theme="@style/NoPasswordLogin"/>
+        <activity android:configChanges="orientation|screenSize|keyboardHidden" android:name="com.alibaba.sdk.android.openaccount.ui.ui.LoginActivity" android:theme="@style/Login"/>
+        <activity android:configChanges="orientation|screenSize|keyboardHidden" android:name="com.alibaba.sdk.android.openaccount.ui.ui.RegisterActivity" android:theme="@style/Register"/>
+        <activity android:configChanges="orientation|screenSize|keyboardHidden" android:name="com.alibaba.sdk.android.openaccount.ui.ui.ResetPasswordFillPasswordActivity" android:theme="@style/ResetPasswordFillPassword"/>
+        <activity android:configChanges="orientation|screenSize|keyboardHidden" android:name="com.alibaba.sdk.android.openaccount.ui.ui.RegisterFillPasswordActivity" android:theme="@style/RegisterFillPassword"/>
+        <activity android:configChanges="orientation|screenSize|keyboardHidden" android:name="com.alibaba.sdk.android.openaccount.ui.ui.ResetPasswordActivity" android:theme="@style/ResetPassword"/>
+        <activity android:configChanges="orientation|screenSize|keyboardHidden" android:name="com.alibaba.sdk.android.openaccount.ui.ui.LoginDoubleCheckWebActivity"/>
+
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.alibaba.sdk.android.oauth.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser" android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity android:name="com.alibaba.sdk.android.webview.BaseWebViewActivity"/>
+        <receiver android:exported="false" android:name="com.alibaba.sdk.android.hotpatch.HotPatchBroadcastReceiver" android:process=":hotpatch">
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.hotpatch.action.HOT_PATCH"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.taobao.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.taobao.permission.UPDATE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!-- sonic end -->
+
+
+    <!-- agoo start -->
+    <uses-permission android:name="org.agoo.android.permission.MESSAGE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="com.taobao.taobao.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.tmall.wireless.privateinfo.permission.READ_MESSAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <!-- smart device -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+<uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+
+</manifest>
